@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_new">NewActivity</string>
+    <string name="edit_text">Edit Message</string>
+    <string name="btn2">Get Result</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="android">Android</string>
+
+</resources>
