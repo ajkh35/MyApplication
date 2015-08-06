@@ -47,4 +47,19 @@
             android:layout_marginTop="25dp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout1"
+        android:background="#5cff4f">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv">
+
+        </ListView>
+
+    </LinearLayout>
+
 </LinearLayout>

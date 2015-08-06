@@ -8,5 +8,6 @@
     <string name="btn2">Get Result</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="android">Android</string>
+    <string name="title_activity_single_view">SingleViewActivity</string>
 
 </resources>

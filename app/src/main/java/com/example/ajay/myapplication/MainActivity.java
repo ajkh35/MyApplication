@@ -8,8 +8,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,10 +21,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public final static String EXTRA_MESSAGE = "data";
 
+    private AdapterView.OnItemClickListener mClickHandler = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            String item = (String) parent.getItemAtPosition(position);
+            Toast.makeText(getApplicationContext(),item+" clicked",Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String[] arr = {"abc","def","ghi","jkl","mno"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr);
+        ListView lv = (ListView) findViewById(R.id.lv);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(mClickHandler);
 
         Button btSend = (Button) findViewById(R.id.bt_send);
         btSend.setOnClickListener(this);
@@ -65,4 +83,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getResult(v);
         else{}
     }
+
 }

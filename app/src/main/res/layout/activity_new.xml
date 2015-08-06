@@ -7,19 +7,37 @@
     tools:context="com.example.ajay.myapplication.NewActivity"
     android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_red_dark" />
+        android:id="@+id/fl_1">
 
-    <ImageView
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:contentDescription="@string/android"
-        android:src="@drawable/backup_android"
-        android:layout_below="@id/tv"
-        android:layout_alignParentLeft="true"/>
+        android:id="@+id/fl_2"
+        android:layout_below="@id/fl_1">
+
+        <GridView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/gv"
+            android:columnWidth="@dimen/column_width"
+            android:numColumns="auto_fit"
+            android:verticalSpacing="@dimen/spacing"
+            android:horizontalSpacing="@dimen/spacing"
+            android:stretchMode="columnWidth"
+            android:gravity="center">
+
+        </GridView>
+    </FrameLayout>
 
 </RelativeLayout>

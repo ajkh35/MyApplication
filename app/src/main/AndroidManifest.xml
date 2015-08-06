@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ajay.myapplication.MainActivity" />
         </activity>
+        <activity
+            android:name=".SingleViewActivity"
+            android:label="@string/title_activity_single_view"
+            android:parentActivityName=".NewActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ajay.myapplication.NewActivity" />
+        </activity>
     </application>
 
 </manifest>
