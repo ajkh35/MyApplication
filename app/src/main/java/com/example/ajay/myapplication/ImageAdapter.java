@@ -50,6 +50,7 @@ public class ImageAdapter extends BaseAdapter{
     }
 
     public int[] mImages = {
-            R.drawable.backup_android,R.drawable.me
+            R.drawable.backup_android,R.drawable.portal_2,
+            R.drawable.under_the_hood
     };
 }

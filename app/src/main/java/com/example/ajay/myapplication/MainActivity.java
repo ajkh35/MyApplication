@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
+    String[] mArr = {"abc","def","ghi","jkl","mno"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] arr = {"abc","def","ghi","jkl","mno"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arr);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,mArr);
         ListView lv = (ListView) findViewById(R.id.lv);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(mClickHandler);
