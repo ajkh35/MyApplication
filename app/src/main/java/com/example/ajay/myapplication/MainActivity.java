@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
-    String[] mArr = {"abc","def","ghi","jkl","mno"};
+    String[] mArr = {"abc","def","ghi","jkl","mno","pqr","stu","vwx","yz"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btn = (Button) findViewById(R.id.btn2);
         btn.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                Toast toast = Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            case R.id.action_search:
+                Toast.makeText(getApplicationContext(),"Search",Toast.LENGTH_SHORT).show();
+                return true;
+            default: {}
+        }
+        return true;
     }
 
     public void sendMessage(View v) {

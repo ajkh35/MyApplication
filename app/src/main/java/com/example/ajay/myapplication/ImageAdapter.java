@@ -1,10 +1,10 @@
 package com.example.ajay.myapplication;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 /**
@@ -12,6 +12,7 @@ import android.widget.ImageView;
  */
 public class ImageAdapter extends BaseAdapter{
     private Context mContext;
+    int[] mImages = { R.drawable.backup_android,R.drawable.under_the_hood,R.drawable.portal_2 };
 
     public ImageAdapter(Context C){
         mContext = C;
@@ -19,20 +20,22 @@ public class ImageAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        ViewHolder holder;
 
         if(convertView == null){
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(300,300));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8,8,8,8);
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            convertView = inflater.inflate(R.layout.gridview_items,parent,false);
+            holder = new ViewHolder(convertView);
+//            holder.imageView = new ImageView(mContext);
+//            holder.imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            holder.imageView.setPadding(8,8,8,8);
+            convertView.setTag(holder);
         }
         else{
-            imageView = (ImageView) convertView;
+            holder = (ViewHolder) convertView.getTag();
         }
-
-        imageView.setImageResource(mImages[position]);
-        return imageView;
+        holder.imageView.setImageResource(mImages[position]);
+        return convertView;
     }
 
     public int getCount(){
@@ -49,8 +52,12 @@ public class ImageAdapter extends BaseAdapter{
         return 0;
     }
 
-    public int[] mImages = {
-            R.drawable.backup_android,R.drawable.portal_2,
-            R.drawable.under_the_hood
-    };
+
+    private static class ViewHolder{
+        ImageView imageView;
+
+        ViewHolder(View view){
+            imageView = (ImageView) view.findViewById(R.id.iv);
+        }
+    }
 }
